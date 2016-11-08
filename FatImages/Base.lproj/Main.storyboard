@@ -1,25 +1,75 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="FxC-wz-Kg4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="OIp-ZX-2lL">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FxC-wz-Kg4" customClass="ViewController" customModule="FatImages" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="fdt-GE-2pm"/>
+                        <viewControllerLayoutGuide type="bottom" id="mkc-MY-Dza"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="ABL-A6-jJD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VeZ-WB-DVc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zAb-bN-tw8">
+                                <rect key="frame" x="18" y="285" width="564" height="31"/>
+                                <connections>
+                                    <action selector="setTransparencyOfImage:" destination="FxC-wz-Kg4" eventType="valueChanged" id="d0d-FM-CXs"/>
+                                </connections>
+                            </slider>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4E-st-qxT">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Sync" id="www-3R-xXS">
+                                        <connections>
+                                            <action selector="synchronousDownload:" destination="FxC-wz-Kg4" id="FOP-uI-vfE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0at-1s-fWq"/>
+                                    <barButtonItem title="Async" id="VLv-iC-RAx">
+                                        <connections>
+                                            <action selector="simpleAsynchrounousDownload:" destination="FxC-wz-Kg4" id="tTj-p1-Tad"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hcP-Pu-ApP"/>
+                                    <barButtonItem title="Async w/ closure" id="Oi9-ll-fiv">
+                                        <connections>
+                                            <action selector="asynchronousDownload:" destination="FxC-wz-Kg4" id="sIv-Mg-Mcz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a4E-st-qxT" firstAttribute="top" secondItem="VeZ-WB-DVc" secondAttribute="bottom" id="Ckx-5I-3iO"/>
+                            <constraint firstAttribute="trailing" secondItem="VeZ-WB-DVc" secondAttribute="trailing" id="N0F-f7-Iis"/>
+                            <constraint firstAttribute="trailing" secondItem="a4E-st-qxT" secondAttribute="trailing" id="QtM-gC-63a"/>
+                            <constraint firstItem="zAb-bN-tw8" firstAttribute="centerY" secondItem="ABL-A6-jJD" secondAttribute="centerY" id="Qzc-ls-bi8"/>
+                            <constraint firstItem="VeZ-WB-DVc" firstAttribute="leading" secondItem="ABL-A6-jJD" secondAttribute="leading" id="UEl-tl-j2l"/>
+                            <constraint firstItem="mkc-MY-Dza" firstAttribute="top" secondItem="a4E-st-qxT" secondAttribute="bottom" id="XTj-kK-Ddl"/>
+                            <constraint firstAttribute="trailing" secondItem="zAb-bN-tw8" secondAttribute="trailing" constant="20" id="Z6W-Fh-04T"/>
+                            <constraint firstItem="zAb-bN-tw8" firstAttribute="leading" secondItem="ABL-A6-jJD" secondAttribute="leading" constant="20" id="a2f-n2-Qiu"/>
+                            <constraint firstItem="a4E-st-qxT" firstAttribute="leading" secondItem="ABL-A6-jJD" secondAttribute="leading" id="hdv-IC-oUe"/>
+                            <constraint firstItem="VeZ-WB-DVc" firstAttribute="top" secondItem="ABL-A6-jJD" secondAttribute="top" id="xo8-1q-Azb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="photoView" destination="VeZ-WB-DVc" id="HyW-5V-Qdx"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jt8-NH-kIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="602" y="444"/>
         </scene>
     </scenes>
 </document>
